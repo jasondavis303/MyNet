@@ -31,5 +31,21 @@ namespace MyNet
         {
             _net.Save();
         }
+
+        private void lbNodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbNodes.SelectedIndex == -1)
+            {
+                tlpMain.Enabled = false;
+                return;
+            }
+
+            tlpMain.Enabled = true;
+            var node = (Node)lbNodes.SelectedItem;
+            tbName.Text = node.Name;
+            tbIP.Text = node.IPAddress;
+            tbUser.Text = node.Username;
+            tbPass.Text = node.Password;
+        }
     }
 }
