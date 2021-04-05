@@ -36,6 +36,22 @@ namespace MyNet
             dest.SshKeyFile = SshKeyFile;
         }
 
+        public bool IsIdenticalTo(Node test)
+        {
+            return
+                Name == test.Name &&
+                IPAddress == test.IPAddress &&
+                Username == test.Username &&
+                Password == test.Password &&
+                UsePuttyProfile == test.UsePuttyProfile &&
+                PuttyProfile == test.PuttyProfile &&
+                UseWinScpProfile == test.UseWinScpProfile &&
+                WinScpProfile == test.WinScpProfile &&
+                UseSshKey == test.UseSshKey &&
+                SshKeyData == test.SshKeyData &&
+                SshKeyFile == test.SshKeyFile;
+        }
+
         public string HashName()
         {
             string data = Name.ToLower();

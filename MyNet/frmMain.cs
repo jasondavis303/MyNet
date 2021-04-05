@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MyNet
@@ -90,7 +91,8 @@ namespace MyNet
             var toAdd = new NetNodes();
             foreach (var newNode in newNodes)
             {
-                if (_net.Exists(newNode.Name))
+                var existingNode = _net.FirstOrDefault(item => item.Name.Equals(newNode.Name, StringComparison.CurrentCultureIgnoreCase));
+                if (existingNode != null && !existingNode.IsIdenticalTo(newNode))
                 {
                     string suggestedName;
                     int cnt = 0;
@@ -374,6 +376,5 @@ namespace MyNet
             catch { }
             return false;
         }
-        
     }
 }
