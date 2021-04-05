@@ -92,7 +92,11 @@ namespace MyNet
             foreach (var newNode in newNodes)
             {
                 var existingNode = _net.FirstOrDefault(item => item.Name.Equals(newNode.Name, StringComparison.CurrentCultureIgnoreCase));
-                if (existingNode != null && !existingNode.IsIdenticalTo(newNode))
+                if (existingNode == null)
+                {
+                    toAdd.Add(newNode);
+                }
+                else if (!existingNode.IsIdenticalTo(newNode))
                 {
                     string suggestedName;
                     int cnt = 0;
@@ -112,10 +116,6 @@ namespace MyNet
                         newNode.Name = suggestedName;
                         toAdd.Add(newNode);
                     }
-                }
-                else
-                {
-                    toAdd.Add(newNode);
                 }
             }
 
