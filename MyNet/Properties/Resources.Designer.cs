@@ -109,5 +109,36 @@ namespace MyNet.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to username:s:{jd}
+        ///full address:s:{ip}
+        ///screen mode id:i:2
+        ///use multimon:i:0
+        ///desktopwidth:i:1920
+        ///desktopheight:i:1080
+        ///session bpp:i:32
+        ///winposstr:s:0,3,0,0,800,600
+        ///compression:i:1
+        ///keyboardhook:i:2
+        ///audiocapturemode:i:0
+        ///videoplaybackmode:i:1
+        ///connection type:i:7
+        ///networkautodetect:i:1
+        ///bandwidthautodetect:i:1
+        ///displayconnectionbar:i:1
+        ///enableworkspacereconnect:i:0
+        ///disable wallpaper:i:0
+        ///allow font smoothing:i:0
+        ///allow desktop composition:i:0
+        ///disable full window drag:i:1
+        ///disable menu anims:i:1
+        ///disable [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string rdtemplate {
+            get {
+                return ResourceManager.GetString("rdtemplate", resourceCulture);
+            }
+        }
     }
 }

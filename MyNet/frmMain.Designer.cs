@@ -39,6 +39,9 @@ namespace MyNet
             this.btnExport = new System.Windows.Forms.ToolStripButton();
             this.lbNodes = new System.Windows.Forms.ListBox();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.tbSSHKeyFile = new System.Windows.Forms.TextBox();
+            this.tbWinSCPProfile = new System.Windows.Forms.TextBox();
+            this.tbPuttyProfile = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,8 +56,13 @@ namespace MyNet
             this.btnWinSCP = new System.Windows.Forms.Button();
             this.btnPuTTY = new System.Windows.Forms.Button();
             this.cmdCopyPassword = new System.Windows.Forms.Button();
+            this.chkUsePuttyProfile = new System.Windows.Forms.CheckBox();
+            this.chkWinSCPProfile = new System.Windows.Forms.CheckBox();
+            this.chkSSHKey = new System.Windows.Forms.CheckBox();
             this.ofdImport = new System.Windows.Forms.OpenFileDialog();
             this.sfdExport = new System.Windows.Forms.SaveFileDialog();
+            this.ofdLocateExe = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSSHKey = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -153,6 +161,9 @@ namespace MyNet
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.Controls.Add(this.tbSSHKeyFile, 2, 13);
+            this.tlpMain.Controls.Add(this.tbWinSCPProfile, 2, 11);
+            this.tlpMain.Controls.Add(this.tbPuttyProfile, 2, 9);
             this.tlpMain.Controls.Add(this.label1, 1, 1);
             this.tlpMain.Controls.Add(this.tbName, 2, 1);
             this.tlpMain.Controls.Add(this.label2, 1, 3);
@@ -161,13 +172,16 @@ namespace MyNet
             this.tlpMain.Controls.Add(this.tbUser, 2, 5);
             this.tlpMain.Controls.Add(this.label4, 1, 7);
             this.tlpMain.Controls.Add(this.tbPass, 2, 7);
-            this.tlpMain.Controls.Add(this.tableLayoutPanel2, 1, 9);
+            this.tlpMain.Controls.Add(this.tableLayoutPanel2, 1, 16);
             this.tlpMain.Controls.Add(this.cmdCopyPassword, 3, 7);
+            this.tlpMain.Controls.Add(this.chkUsePuttyProfile, 1, 9);
+            this.tlpMain.Controls.Add(this.chkWinSCPProfile, 1, 11);
+            this.tlpMain.Controls.Add(this.chkSSHKey, 1, 13);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Enabled = false;
             this.tlpMain.Location = new System.Drawing.Point(272, 39);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 10;
+            this.tlpMain.RowCount = 17;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -176,16 +190,56 @@ namespace MyNet
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.Size = new System.Drawing.Size(451, 451);
             this.tlpMain.TabIndex = 2;
             // 
+            // tbSSHKeyFile
+            // 
+            this.tbSSHKeyFile.BackColor = System.Drawing.SystemColors.Window;
+            this.tlpMain.SetColumnSpan(this.tbSSHKeyFile, 2);
+            this.tbSSHKeyFile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbSSHKeyFile.Location = new System.Drawing.Point(137, 317);
+            this.tbSSHKeyFile.Name = "tbSSHKeyFile";
+            this.tbSSHKeyFile.ReadOnly = true;
+            this.tbSSHKeyFile.Size = new System.Drawing.Size(291, 23);
+            this.tbSSHKeyFile.TabIndex = 14;
+            // 
+            // tbWinSCPProfile
+            // 
+            this.tbWinSCPProfile.BackColor = System.Drawing.SystemColors.Window;
+            this.tlpMain.SetColumnSpan(this.tbWinSCPProfile, 2);
+            this.tbWinSCPProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbWinSCPProfile.Location = new System.Drawing.Point(137, 268);
+            this.tbWinSCPProfile.Name = "tbWinSCPProfile";
+            this.tbWinSCPProfile.ReadOnly = true;
+            this.tbWinSCPProfile.Size = new System.Drawing.Size(291, 23);
+            this.tbWinSCPProfile.TabIndex = 13;
+            // 
+            // tbPuttyProfile
+            // 
+            this.tbPuttyProfile.BackColor = System.Drawing.SystemColors.Window;
+            this.tlpMain.SetColumnSpan(this.tbPuttyProfile, 2);
+            this.tbPuttyProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbPuttyProfile.Location = new System.Drawing.Point(137, 219);
+            this.tbPuttyProfile.Name = "tbPuttyProfile";
+            this.tbPuttyProfile.ReadOnly = true;
+            this.tbPuttyProfile.Size = new System.Drawing.Size(291, 23);
+            this.tbPuttyProfile.TabIndex = 12;
+            // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label1.Location = new System.Drawing.Point(23, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 0;
@@ -196,17 +250,17 @@ namespace MyNet
             this.tbName.BackColor = System.Drawing.SystemColors.Window;
             this.tlpMain.SetColumnSpan(this.tbName, 2);
             this.tbName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbName.Location = new System.Drawing.Point(94, 23);
+            this.tbName.Location = new System.Drawing.Point(137, 23);
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(334, 23);
+            this.tbName.Size = new System.Drawing.Size(291, 23);
             this.tbName.TabIndex = 1;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 77);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label2.Location = new System.Drawing.Point(23, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 15);
             this.label2.TabIndex = 2;
@@ -217,17 +271,17 @@ namespace MyNet
             this.tbIP.BackColor = System.Drawing.SystemColors.Window;
             this.tlpMain.SetColumnSpan(this.tbIP, 2);
             this.tbIP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbIP.Location = new System.Drawing.Point(94, 72);
+            this.tbIP.Location = new System.Drawing.Point(137, 72);
             this.tbIP.Name = "tbIP";
             this.tbIP.ReadOnly = true;
-            this.tbIP.Size = new System.Drawing.Size(334, 23);
+            this.tbIP.Size = new System.Drawing.Size(291, 23);
             this.tbIP.TabIndex = 3;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 126);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label3.Location = new System.Drawing.Point(23, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 15);
             this.label3.TabIndex = 4;
@@ -238,17 +292,17 @@ namespace MyNet
             this.tbUser.BackColor = System.Drawing.SystemColors.Window;
             this.tlpMain.SetColumnSpan(this.tbUser, 2);
             this.tbUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbUser.Location = new System.Drawing.Point(94, 121);
+            this.tbUser.Location = new System.Drawing.Point(137, 121);
             this.tbUser.Name = "tbUser";
             this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(334, 23);
+            this.tbUser.Size = new System.Drawing.Size(291, 23);
             this.tbUser.TabIndex = 5;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 175);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label4.Location = new System.Drawing.Point(23, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 15);
             this.label4.TabIndex = 6;
@@ -258,10 +312,10 @@ namespace MyNet
             // 
             this.tbPass.BackColor = System.Drawing.SystemColors.Window;
             this.tbPass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbPass.Location = new System.Drawing.Point(94, 170);
+            this.tbPass.Location = new System.Drawing.Point(137, 170);
             this.tbPass.Name = "tbPass";
             this.tbPass.ReadOnly = true;
-            this.tbPass.Size = new System.Drawing.Size(305, 23);
+            this.tbPass.Size = new System.Drawing.Size(262, 23);
             this.tbPass.TabIndex = 7;
             this.tbPass.UseSystemPasswordChar = true;
             // 
@@ -280,7 +334,7 @@ namespace MyNet
             this.tableLayoutPanel2.Controls.Add(this.btnWinSCP, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnPuTTY, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 216);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 383);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -340,6 +394,42 @@ namespace MyNet
             this.cmdCopyPassword.UseVisualStyleBackColor = true;
             this.cmdCopyPassword.Click += new System.EventHandler(this.cmdCopyPassword_Click);
             // 
+            // chkUsePuttyProfile
+            // 
+            this.chkUsePuttyProfile.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkUsePuttyProfile.AutoSize = true;
+            this.chkUsePuttyProfile.Enabled = false;
+            this.chkUsePuttyProfile.Location = new System.Drawing.Point(23, 221);
+            this.chkUsePuttyProfile.Name = "chkUsePuttyProfile";
+            this.chkUsePuttyProfile.Size = new System.Drawing.Size(99, 19);
+            this.chkUsePuttyProfile.TabIndex = 11;
+            this.chkUsePuttyProfile.Text = "PuTTY Profile:";
+            this.chkUsePuttyProfile.UseVisualStyleBackColor = true;
+            // 
+            // chkWinSCPProfile
+            // 
+            this.chkWinSCPProfile.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkWinSCPProfile.AutoSize = true;
+            this.chkWinSCPProfile.Enabled = false;
+            this.chkWinSCPProfile.Location = new System.Drawing.Point(23, 270);
+            this.chkWinSCPProfile.Name = "chkWinSCPProfile";
+            this.chkWinSCPProfile.Size = new System.Drawing.Size(108, 19);
+            this.chkWinSCPProfile.TabIndex = 15;
+            this.chkWinSCPProfile.Text = "WinSCP Profile:";
+            this.chkWinSCPProfile.UseVisualStyleBackColor = true;
+            // 
+            // chkSSHKey
+            // 
+            this.chkSSHKey.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkSSHKey.AutoSize = true;
+            this.chkSSHKey.Enabled = false;
+            this.chkSSHKey.Location = new System.Drawing.Point(23, 319);
+            this.chkSSHKey.Name = "chkSSHKey";
+            this.chkSSHKey.Size = new System.Drawing.Size(72, 19);
+            this.chkSSHKey.TabIndex = 16;
+            this.chkSSHKey.Text = "SSH Key:";
+            this.chkSSHKey.UseVisualStyleBackColor = true;
+            // 
             // ofdImport
             // 
             this.ofdImport.Filter = "MyNet Files (*.json)|*.json";
@@ -347,6 +437,14 @@ namespace MyNet
             // sfdExport
             // 
             this.sfdExport.Filter = "MyNet Files (*.json)|*.json";
+            // 
+            // ofdLocateExe
+            // 
+            this.ofdLocateExe.Filter = "putty.exe|putty.exe";
+            // 
+            // sfdSSHKey
+            // 
+            this.sfdSSHKey.Filter = "PuTTY Key Files (*.ppk)|*.ppk";
             // 
             // frmMain
             // 
@@ -400,6 +498,14 @@ namespace MyNet
         private System.Windows.Forms.ToolStripButton btnExport;
         private System.Windows.Forms.OpenFileDialog ofdImport;
         private System.Windows.Forms.SaveFileDialog sfdExport;
+        private System.Windows.Forms.TextBox tbSSHKeyFile;
+        private System.Windows.Forms.TextBox tbWinSCPProfile;
+        private System.Windows.Forms.TextBox tbPuttyProfile;
+        private System.Windows.Forms.CheckBox chkUsePuttyProfile;
+        private System.Windows.Forms.CheckBox chkWinSCPProfile;
+        private System.Windows.Forms.CheckBox chkSSHKey;
+        private System.Windows.Forms.OpenFileDialog ofdLocateExe;
+        private System.Windows.Forms.SaveFileDialog sfdSSHKey;
     }
 }
 

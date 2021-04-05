@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MyNet
@@ -28,6 +29,17 @@ namespace MyNet
             tbIP.Text = TheNode.IPAddress;
             tbUser.Text = TheNode.Username;
             tbPass.Text = TheNode.Password;
+
+            chkUsePuttyProfile.Checked = TheNode.UsePuttyProfile;
+            tbPuttyProfile.Enabled = TheNode.UsePuttyProfile;
+            tbPuttyProfile.Text = TheNode.PuttyProfile;
+            chkUseWinSCPProfile.Checked = TheNode.UseWinScpProfile;
+            tbWinSCPProfile.Enabled = TheNode.UseWinScpProfile;
+            tbWinSCPProfile.Text = TheNode.WinScpProfile;
+            chkUseSSHKey.Checked = TheNode.UseSshKey;
+            tlpSSH.Enabled = TheNode.UseSshKey;
+
+            btnSave.Enabled = false;
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
@@ -54,6 +66,56 @@ namespace MyNet
             EnableSave();
         }
 
+        private void chkUsePuttyProfile_CheckedChanged(object sender, EventArgs e)
+        {
+            TheNode.UsePuttyProfile = chkUsePuttyProfile.Checked;
+            tbPuttyProfile.Enabled = chkUsePuttyProfile.Checked;
+            EnableSave();
+        }
+
+        private void tbPuttyProfile_TextChanged(object sender, EventArgs e)
+        {
+            TheNode.PuttyProfile = tbPuttyProfile.Text;
+            EnableSave();
+        }
+
+        private void chkUseWinSCPProfile_CheckedChanged(object sender, EventArgs e)
+        {
+            TheNode.UseWinScpProfile = chkUseWinSCPProfile.Checked;
+            tbWinSCPProfile.Enabled = chkUseWinSCPProfile.Checked;
+            EnableSave();
+        }
+
+        private void tbWinSCPProfile_TextChanged(object sender, EventArgs e)
+        {
+            TheNode.WinScpProfile = tbWinSCPProfile.Text;
+            EnableSave();
+        }
+
+        private void chkUseSSHKey_CheckedChanged(object sender, EventArgs e)
+        {
+            TheNode.UseSshKey = chkUseSSHKey.Checked;
+            tlpSSH.Enabled = chkUseSSHKey.Checked;
+            EnableSave();
+        }
+
+        private void btnImportSSH_Click(object sender, EventArgs e)
+        {
+            if (ofdSSH.ShowDialog() != DialogResult.OK)
+                return;
+
+            TheNode.SshKeyFile = ofdSSH.FileName;
+            TheNode.SshKeyData = File.ReadAllText(ofdSSH.FileName);           
+            EnableSave();
+        }
+
+        private void btnEditSSH_Click(object sender, EventArgs e)
+        {
+            using var f = new frmSSHKey(TheNode);
+            f.ShowDialog();
+            EnableSave();
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -64,6 +126,8 @@ namespace MyNet
             DialogResult = DialogResult.OK;
             Close();
         }
+
+
 
 
 
@@ -84,7 +148,21 @@ namespace MyNet
                 if (string.IsNullOrWhiteSpace(tbPass.Text.Trim()))
                     return false;
 
+            if (chkUsePuttyProfile.Checked)
+                if (string.IsNullOrWhiteSpace(tbPuttyProfile.Text))
+                    return false;
+
+            if (chkUseWinSCPProfile.Checked)
+                if (string.IsNullOrWhiteSpace(tbWinSCPProfile.Text))
+                    return false;
+
+            if (chkUseSSHKey.Checked)
+                if (string.IsNullOrWhiteSpace(TheNode.SshKeyData))
+                    return false;
+
             return true;
         }
+
+        
     }
 }
