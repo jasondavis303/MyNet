@@ -81,7 +81,7 @@ namespace MyNet
             this.btnExport});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(723, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(664, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -144,12 +144,13 @@ namespace MyNet
             // lbNodes
             // 
             this.lbNodes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNodes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbNodes.FormattingEnabled = true;
             this.lbNodes.IntegralHeight = false;
-            this.lbNodes.ItemHeight = 15;
+            this.lbNodes.ItemHeight = 21;
             this.lbNodes.Location = new System.Drawing.Point(0, 39);
             this.lbNodes.Name = "lbNodes";
-            this.lbNodes.Size = new System.Drawing.Size(272, 451);
+            this.lbNodes.Size = new System.Drawing.Size(272, 432);
             this.lbNodes.TabIndex = 1;
             this.lbNodes.SelectedIndexChanged += new System.EventHandler(this.lbNodes_SelectedIndexChanged);
             // 
@@ -181,7 +182,7 @@ namespace MyNet
             this.tlpMain.Enabled = false;
             this.tlpMain.Location = new System.Drawing.Point(272, 39);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 17;
+            this.tlpMain.RowCount = 19;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -199,7 +200,9 @@ namespace MyNet
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(451, 451);
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.Size = new System.Drawing.Size(392, 432);
             this.tlpMain.TabIndex = 2;
             // 
             // tbSSHKeyFile
@@ -210,7 +213,7 @@ namespace MyNet
             this.tbSSHKeyFile.Location = new System.Drawing.Point(137, 317);
             this.tbSSHKeyFile.Name = "tbSSHKeyFile";
             this.tbSSHKeyFile.ReadOnly = true;
-            this.tbSSHKeyFile.Size = new System.Drawing.Size(291, 23);
+            this.tbSSHKeyFile.Size = new System.Drawing.Size(232, 23);
             this.tbSSHKeyFile.TabIndex = 14;
             // 
             // tbWinSCPProfile
@@ -221,7 +224,7 @@ namespace MyNet
             this.tbWinSCPProfile.Location = new System.Drawing.Point(137, 268);
             this.tbWinSCPProfile.Name = "tbWinSCPProfile";
             this.tbWinSCPProfile.ReadOnly = true;
-            this.tbWinSCPProfile.Size = new System.Drawing.Size(291, 23);
+            this.tbWinSCPProfile.Size = new System.Drawing.Size(232, 23);
             this.tbWinSCPProfile.TabIndex = 13;
             // 
             // tbPuttyProfile
@@ -232,7 +235,7 @@ namespace MyNet
             this.tbPuttyProfile.Location = new System.Drawing.Point(137, 219);
             this.tbPuttyProfile.Name = "tbPuttyProfile";
             this.tbPuttyProfile.ReadOnly = true;
-            this.tbPuttyProfile.Size = new System.Drawing.Size(291, 23);
+            this.tbPuttyProfile.Size = new System.Drawing.Size(232, 23);
             this.tbPuttyProfile.TabIndex = 12;
             // 
             // label1
@@ -253,7 +256,7 @@ namespace MyNet
             this.tbName.Location = new System.Drawing.Point(137, 23);
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(291, 23);
+            this.tbName.Size = new System.Drawing.Size(232, 23);
             this.tbName.TabIndex = 1;
             // 
             // label2
@@ -274,7 +277,7 @@ namespace MyNet
             this.tbIP.Location = new System.Drawing.Point(137, 72);
             this.tbIP.Name = "tbIP";
             this.tbIP.ReadOnly = true;
-            this.tbIP.Size = new System.Drawing.Size(291, 23);
+            this.tbIP.Size = new System.Drawing.Size(232, 23);
             this.tbIP.TabIndex = 3;
             // 
             // label3
@@ -295,7 +298,7 @@ namespace MyNet
             this.tbUser.Location = new System.Drawing.Point(137, 121);
             this.tbUser.Name = "tbUser";
             this.tbUser.ReadOnly = true;
-            this.tbUser.Size = new System.Drawing.Size(291, 23);
+            this.tbUser.Size = new System.Drawing.Size(232, 23);
             this.tbUser.TabIndex = 5;
             // 
             // label4
@@ -315,7 +318,7 @@ namespace MyNet
             this.tbPass.Location = new System.Drawing.Point(137, 170);
             this.tbPass.Name = "tbPass";
             this.tbPass.ReadOnly = true;
-            this.tbPass.Size = new System.Drawing.Size(262, 23);
+            this.tbPass.Size = new System.Drawing.Size(203, 23);
             this.tbPass.TabIndex = 7;
             this.tbPass.UseSystemPasswordChar = true;
             // 
@@ -339,7 +342,7 @@ namespace MyNet
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(411, 29);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(352, 29);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // btnRD
@@ -355,7 +358,7 @@ namespace MyNet
             // btnNet
             // 
             this.btnNet.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnNet.Location = new System.Drawing.Point(115, 3);
+            this.btnNet.Location = new System.Drawing.Point(94, 3);
             this.btnNet.Name = "btnNet";
             this.btnNet.Size = new System.Drawing.Size(75, 23);
             this.btnNet.TabIndex = 1;
@@ -366,7 +369,7 @@ namespace MyNet
             // btnWinSCP
             // 
             this.btnWinSCP.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnWinSCP.Location = new System.Drawing.Point(217, 3);
+            this.btnWinSCP.Location = new System.Drawing.Point(182, 3);
             this.btnWinSCP.Name = "btnWinSCP";
             this.btnWinSCP.Size = new System.Drawing.Size(75, 23);
             this.btnWinSCP.TabIndex = 2;
@@ -377,7 +380,7 @@ namespace MyNet
             // btnPuTTY
             // 
             this.btnPuTTY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPuTTY.Location = new System.Drawing.Point(333, 3);
+            this.btnPuTTY.Location = new System.Drawing.Point(274, 3);
             this.btnPuTTY.Name = "btnPuTTY";
             this.btnPuTTY.Size = new System.Drawing.Size(75, 23);
             this.btnPuTTY.TabIndex = 3;
@@ -387,7 +390,7 @@ namespace MyNet
             // 
             // cmdCopyPassword
             // 
-            this.cmdCopyPassword.Location = new System.Drawing.Point(405, 170);
+            this.cmdCopyPassword.Location = new System.Drawing.Point(346, 170);
             this.cmdCopyPassword.Name = "cmdCopyPassword";
             this.cmdCopyPassword.Size = new System.Drawing.Size(23, 23);
             this.cmdCopyPassword.TabIndex = 10;
@@ -450,12 +453,13 @@ namespace MyNet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 490);
+            this.ClientSize = new System.Drawing.Size(664, 471);
             this.Controls.Add(this.tlpMain);
             this.Controls.Add(this.lbNodes);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(680, 510);
             this.Name = "frmMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "MyNet";
