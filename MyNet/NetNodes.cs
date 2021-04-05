@@ -15,12 +15,13 @@ namespace MyNet
 
         public void AddNode(Node node)
         {
-            bool existing = this.Any(item => item.Name.Equals(node.Name, StringComparison.CurrentCultureIgnoreCase));
-            if (existing)
+            if (Exists(node.Name))
                 throw new Exception($"Node already exists with the name {node.Name}");
 
             Add(node);
         }
+
+        public bool Exists(string name) => this.Any(item => item.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
         public void Save()
         {
@@ -30,7 +31,8 @@ namespace MyNet
             sw.Write(Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(this)), null, DataProtectionScope.CurrentUser)));
         }
 
-
+        public void Export(string filename) => File.WriteAllText(filename, JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true }));
+      
         public static NetNodes Load()
         {
             try
@@ -45,5 +47,7 @@ namespace MyNet
                 return new NetNodes();
             }
         }
+
+        public static NetNodes Import(string filename) => JsonSerializer.Deserialize<NetNodes>(File.ReadAllText(filename));
     }
 }

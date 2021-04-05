@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace MyNet
@@ -56,7 +55,7 @@ namespace MyNet
             try
             {
                 if (!SelectedNode.Name.Equals(f.TheNode.Name, StringComparison.CurrentCultureIgnoreCase))
-                    if (_net.Any(item => item.Name.Equals(f.TheNode.Name, StringComparison.CurrentCultureIgnoreCase)))
+                    if (_net.Exists(f.TheNode.Name))
                         throw new Exception($"Cannot rename node to {f.TheNode.Name}, another node with the same name already exists");
                 f.TheNode.CopyTo(SelectedNode);
                 _net.Save();
@@ -76,16 +75,58 @@ namespace MyNet
                 return;
             _net.Remove(SelectedNode);
             _net.Save();
+            LoadNodes(null);
         }
 
         private void BtnImport_Click(object sender, EventArgs e)
         {
-            
+            if (ofdImport.ShowDialog() != DialogResult.OK)
+                return;
+
+            var newNodes = NetNodes.Import(ofdImport.FileName);
+            var toAdd = new NetNodes();
+            foreach(var newNode in newNodes)
+            {
+                if(_net.Exists(newNode.Name))
+                {
+                    string suggestedName;
+                    int cnt = 0;
+                    while(true)
+                    {
+                        cnt++;
+                        suggestedName = $"{newNode.Name} - {cnt}";
+                        if (!_net.Exists(suggestedName))
+                            break;
+                    }
+                    var msg = $"The node '{newNode.Name}' already exists. Do you want to import it as '{suggestedName}'?";
+                    var ans = MessageBox.Show(msg, "Confirm Rename", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (ans == DialogResult.Cancel)
+                        return;
+                    if(ans == DialogResult.Yes)
+                    {
+                        newNode.Name = suggestedName;
+                        toAdd.Add(newNode);
+                    }
+                }
+                else
+                {
+                    toAdd.Add(newNode);
+                }
+            }
+
+            foreach (var newNode in toAdd)
+                _net.Add(newNode);
+            _net.Save();
+            LoadNodes(SelectedNode?.Name);
         }
 
         private void BtnExport_Click(object sender, EventArgs e)
         {
-            
+            if (sfdExport.ShowDialog() != DialogResult.OK)
+                return;
+
+            _net.Export(sfdExport.FileName);
+            MessageBox.Show("Passwords in the exported file are NOT encrypted!\r\n\r\nMake sure you keep the file secure", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void lbNodes_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,6 +172,8 @@ namespace MyNet
         {
 
         }
+
+
 
 
         private void LoadNodes(string toSelect)

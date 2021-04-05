@@ -53,6 +53,8 @@ namespace MyNet
             this.btnWinSCP = new System.Windows.Forms.Button();
             this.btnPuTTY = new System.Windows.Forms.Button();
             this.cmdCopyPassword = new System.Windows.Forms.Button();
+            this.ofdImport = new System.Windows.Forms.OpenFileDialog();
+            this.sfdExport = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -60,6 +62,8 @@ namespace MyNet
             // 
             // toolStrip1
             // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAdd,
             this.btnEdit,
@@ -69,7 +73,7 @@ namespace MyNet
             this.btnExport});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(723, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(723, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -78,8 +82,9 @@ namespace MyNet
             this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(8, 1, 8, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(23, 22);
+            this.btnAdd.Size = new System.Drawing.Size(36, 36);
             this.btnAdd.ToolTipText = "Add";
             // 
             // btnEdit
@@ -87,8 +92,9 @@ namespace MyNet
             this.btnEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(8, 1, 8, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(23, 22);
+            this.btnEdit.Size = new System.Drawing.Size(36, 36);
             this.btnEdit.ToolTipText = "Edit";
             // 
             // btnDelete
@@ -96,31 +102,35 @@ namespace MyNet
             this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(8, 1, 8, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(23, 22);
+            this.btnDelete.Size = new System.Drawing.Size(36, 36);
             this.btnDelete.ToolTipText = "Delete";
             // 
             // toolStripSeparator1
             // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // btnImport
             // 
             this.btnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
             this.btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImport.Margin = new System.Windows.Forms.Padding(8, 1, 8, 2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(23, 22);
-            this.btnImport.ToolTipText = "Import";
+            this.btnImport.Size = new System.Drawing.Size(36, 36);
             // 
             // btnExport
             // 
             this.btnExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
             this.btnExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExport.Margin = new System.Windows.Forms.Padding(8, 1, 8, 2);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(23, 22);
+            this.btnExport.Size = new System.Drawing.Size(36, 36);
             this.btnExport.ToolTipText = "Export";
             // 
             // lbNodes
@@ -129,9 +139,9 @@ namespace MyNet
             this.lbNodes.FormattingEnabled = true;
             this.lbNodes.IntegralHeight = false;
             this.lbNodes.ItemHeight = 15;
-            this.lbNodes.Location = new System.Drawing.Point(0, 25);
+            this.lbNodes.Location = new System.Drawing.Point(0, 39);
             this.lbNodes.Name = "lbNodes";
-            this.lbNodes.Size = new System.Drawing.Size(272, 465);
+            this.lbNodes.Size = new System.Drawing.Size(272, 451);
             this.lbNodes.TabIndex = 1;
             this.lbNodes.SelectedIndexChanged += new System.EventHandler(this.lbNodes_SelectedIndexChanged);
             // 
@@ -155,7 +165,7 @@ namespace MyNet
             this.tlpMain.Controls.Add(this.cmdCopyPassword, 3, 7);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Enabled = false;
-            this.tlpMain.Location = new System.Drawing.Point(272, 25);
+            this.tlpMain.Location = new System.Drawing.Point(272, 39);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 10;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -168,7 +178,7 @@ namespace MyNet
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(451, 465);
+            this.tlpMain.Size = new System.Drawing.Size(451, 451);
             this.tlpMain.TabIndex = 2;
             // 
             // label1
@@ -330,6 +340,14 @@ namespace MyNet
             this.cmdCopyPassword.UseVisualStyleBackColor = true;
             this.cmdCopyPassword.Click += new System.EventHandler(this.cmdCopyPassword_Click);
             // 
+            // ofdImport
+            // 
+            this.ofdImport.Filter = "MyNet Files (*.json)|*.json";
+            // 
+            // sfdExport
+            // 
+            this.sfdExport.Filter = "MyNet Files (*.json)|*.json";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -380,6 +398,8 @@ namespace MyNet
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnImport;
         private System.Windows.Forms.ToolStripButton btnExport;
+        private System.Windows.Forms.OpenFileDialog ofdImport;
+        private System.Windows.Forms.SaveFileDialog sfdExport;
     }
 }
 
