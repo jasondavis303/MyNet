@@ -111,7 +111,17 @@ namespace MyNet.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to username:s:{jd}
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon network {
+            get {
+                object obj = ResourceManager.GetObject("network", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to username:s:{user}
         ///full address:s:{ip}
         ///screen mode id:i:2
         ///use multimon:i:0
@@ -133,7 +143,7 @@ namespace MyNet.Properties {
         ///allow desktop composition:i:0
         ///disable full window drag:i:1
         ///disable menu anims:i:1
-        ///disable [rest of string was truncated]&quot;;.
+        ///disab [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string rdtemplate {
             get {

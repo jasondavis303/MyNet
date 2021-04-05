@@ -9,6 +9,7 @@ namespace MyNet
         public frmEditNode()
         {
             InitializeComponent();
+            Icon = Properties.Resources.network;
             Text = "Add Node";
             InitControls();
         }
@@ -145,19 +146,20 @@ namespace MyNet
                 return false;
 
             if (!string.IsNullOrWhiteSpace(tbUser.Text.Trim()))
-                if (string.IsNullOrWhiteSpace(tbPass.Text.Trim()))
-                    return false;
-
+                if (!chkUseSSHKey.Checked)
+                    if (string.IsNullOrWhiteSpace(tbPass.Text.Trim()))
+                        return false;
+                
             if (chkUsePuttyProfile.Checked)
-                if (string.IsNullOrWhiteSpace(tbPuttyProfile.Text))
+                if (string.IsNullOrWhiteSpace(tbPuttyProfile.Text.Trim()))
                     return false;
 
             if (chkUseWinSCPProfile.Checked)
-                if (string.IsNullOrWhiteSpace(tbWinSCPProfile.Text))
+                if (string.IsNullOrWhiteSpace(tbWinSCPProfile.Text.Trim()))
                     return false;
 
             if (chkUseSSHKey.Checked)
-                if (string.IsNullOrWhiteSpace(TheNode.SshKeyData))
+                if (string.IsNullOrWhiteSpace((TheNode.SshKeyData + string.Empty).Trim()))
                     return false;
 
             return true;

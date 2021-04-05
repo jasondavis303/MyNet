@@ -112,7 +112,6 @@ namespace MyNet
             this.tbWinSCPProfile.Name = "tbWinSCPProfile";
             this.tbWinSCPProfile.Size = new System.Drawing.Size(259, 23);
             this.tbWinSCPProfile.TabIndex = 12;
-            this.tbWinSCPProfile.UseSystemPasswordChar = true;
             this.tbWinSCPProfile.TextChanged += new System.EventHandler(this.tbWinSCPProfile_TextChanged);
             // 
             // label1
@@ -257,7 +256,6 @@ namespace MyNet
             this.tbPuttyProfile.Name = "tbPuttyProfile";
             this.tbPuttyProfile.Size = new System.Drawing.Size(259, 23);
             this.tbPuttyProfile.TabIndex = 10;
-            this.tbPuttyProfile.UseSystemPasswordChar = true;
             this.tbPuttyProfile.TextChanged += new System.EventHandler(this.tbPuttyProfile_TextChanged);
             // 
             // chkUseWinSCPProfile

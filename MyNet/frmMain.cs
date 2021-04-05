@@ -12,6 +12,7 @@ namespace MyNet
         public frmMain()
         {
             InitializeComponent();
+            Icon = Properties.Resources.network;
             btnAdd.Click += BtnAdd_Click;
             btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += BtnDelete_Click;
