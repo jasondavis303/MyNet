@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -11,6 +12,15 @@ namespace MyNet
     class NetNodes : List<Node>
     {
         private const string FILENAME = "NetNodes.json";
+
+        public void AddNode(Node node)
+        {
+            bool existing = this.Any(item => item.Name.Equals(node.Name, StringComparison.CurrentCultureIgnoreCase));
+            if (existing)
+                throw new Exception($"Node already exists with the name {node.Name}");
+
+            Add(node);
+        }
 
         public void Save()
         {
