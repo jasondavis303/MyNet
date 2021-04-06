@@ -18,7 +18,7 @@ jobs:
 
     - run: dotnet build -c release -o publish/source
 
-    - run: dotnet tool install --global microsoft.net.mage
+    - run: dotnet tool install --global microsoft.dotnet.mage
 
     - run: cob.exe -n MyNet -s publish/source -t publish/target -x MyNet.exe -u https://s3.us-west-1.wasabisys.com/jd-media/test/MyNet/ -i Resources/network.ico
 
@@ -28,5 +28,5 @@ jobs:
         aws_key_id: ${{ secrets.S3_KEY_ID }}
         aws_secret_access_key: ${{ secrets.S3_SECRET }}
         aws_bucket: ${{ secrets.S3_BUCKET }}
-        source_dir: 'MyNet/bin/Release/net5.0-windows/app.publish'
-        destination_dir: 'test/upload/key'
+        source_dir: 'publish/target'
+        destination_dir: 'test/MyNet'
