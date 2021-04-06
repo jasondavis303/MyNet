@@ -21,7 +21,7 @@ jobs:
 
     - run: dotnet build -c release -o publish/source
 
-    - run: ./cob.exe --name MyNet --source publish/source --target publish/target --exe MyNet.exe --url https://s3.us-west-1.wasabisys.com/jd-media/test/MyNet/ --icon Resources\network.ico
+    - run: ./cob/cob.exe --name MyNet --source publish/source --target publish/target --exe MyNet.exe --url https://s3.us-west-1.wasabisys.com/jd-media/test/MyNet/ --icon Resources\network.ico
 
 
     - uses: jasondavis303/upload-s3-action@v1.0.2
