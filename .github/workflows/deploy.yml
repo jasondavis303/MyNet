@@ -16,11 +16,12 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
-    - run: dotnet restore
+    - run: dotnet build -c release -o publish/source
 
-    - uses: microsoft/setup-msbuild@v1       
+    - run: dotnet tool install --global microsoft.net.mage
 
-    - run: msbuild MyNet.sln /t:Publish /p:Configuration=Release /p:PublishProfile=ClickOnceProfile.pubxml
+    - run: cob.exe -n MyNet -s publish/source -t publish/target -x MyNet.exe -u https://s3.us-west-1.wasabisys.com/jd-media/test/MyNet/ -i Resources/network.ico
+
 
     - uses: jasondavis303/upload-s3-action@v1.0.2
       with:
