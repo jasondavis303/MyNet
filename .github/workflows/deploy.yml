@@ -14,9 +14,6 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
-    - run: dotnet tool install --global microsoft.dotnet.mage --version 5.0.0
-
-
     - uses: actions/checkout@v2
 
     - run: dotnet build -c release -o publish/source
