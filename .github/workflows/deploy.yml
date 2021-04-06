@@ -8,13 +8,11 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+        - name: Check out
         - uses: actions/checkout@v2
 
-        - name: Setup .NET
-          # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
         - name: Setup MSBuild.exe
-          uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
-        
+          uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16        
         
         - name: Restore the application
           run: msbuild MyNet.sln /target:Publish /p:Configuration=Release
