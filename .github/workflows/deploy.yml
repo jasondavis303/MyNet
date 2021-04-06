@@ -18,8 +18,6 @@ jobs:
 
     - run: dotnet build -c release -o publish/source
 
-    - run: dotnet tool install --global microsoft.dotnet.mage
-
     - run: ./cob.exe -n MyNet -s publish/source -t publish/target -x MyNet.exe -u https://s3.us-west-1.wasabisys.com/jd-media/test/MyNet/ -i Resources/network.ico
 
 
