@@ -8,20 +8,20 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-        - name: Check out
-        - uses: actions/checkout@v2
+    - name: Check out
+    - uses: actions/checkout@v2
 
-        - name: Setup MSBuild.exe
-          uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16        
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16        
         
-        - name: Restore the application
-          run: msbuild MyNet.sln /target:Publish /p:Configuration=Release
+    - name: Restore the application
+      run: msbuild MyNet.sln /target:Publish /p:Configuration=Release
 
-        - name: Upload
-        - uses: jasondavis303/upload-s3-action@v1.0.2
-          with:
-              aws_key_id: ${{ secrets.S3_KEY_ID }}
-              aws_secret_access_key: ${{ secrets.S3_SECRET }}
-              aws_bucket: ${{ secrets.S3_BUCKET }}
-              source_dir: 'MyNet/bin/publish'
-              destination_dir: 'test/upload/key'
+    - name: Upload
+    - uses: jasondavis303/upload-s3-action@v1.0.2
+      with:
+        aws_key_id: ${{ secrets.S3_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.S3_SECRET }}
+        aws_bucket: ${{ secrets.S3_BUCKET }}
+        source_dir: 'MyNet/bin/publish'
+        destination_dir: 'test/upload/key'
