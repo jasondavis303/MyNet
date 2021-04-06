@@ -19,9 +19,6 @@ jobs:
         - name: Restore the application
           run: msbuild MyNet.sln /target:Publish /p:Configuration=Release
 
-  upload:
-    runs-on: ubuntu-latest
-    steps:
         - name: Upload
         - uses: jasondavis303/upload-s3-action@v1.0.2
           with:
