@@ -18,6 +18,6 @@ jobs:
 
     - run: dotnet publish -c release -o publish\source
 
-    - run: ./cob/cob.exe --name MyNet --source publish\source --target publish\target --exe MyNet.exe --url https://s3.us-west-1.wasabisys.com/jd-media/test/MyNet/ --icon Resources\network.ico
+    - run: ./cob/cob.exe --name MyNet --source publish\source --target publish\target --exe MyNet.exe --url https://s3.us-west-1.wasabisys.com/jd-media/clickonce/MyNet/MyNet.application --icon Resources\network.ico
 
     - run: ./s3u/s3u.exe --endpoint ${{ secrets.S3_ENDPOINT }} --key ${{ secrets.S3_KEY_ID }} --secret ${{ secrets.S3_SECRET }} --source publish\target --bucket ${{ secrets.S3_BUCKET }} --target clickonce/MyNet --overwrite
