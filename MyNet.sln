@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD1FE5E9-68B0-4122-976E-C51171DB691E}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		s3u = s3u
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{29BFB1EB-0A1A-425C-941C-296159BC61F3}"
@@ -15,27 +16,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{7C7E7358-7945-4088-8C4A-3A07882C158C}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\deploy.yml = .github\workflows\deploy.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cob", "cob", "{918D5A71-6337-4C5C-B4BF-F50BDDFE0B63}"
-	ProjectSection(SolutionItems) = preProject
-		cob\cob.deps.json = cob\cob.deps.json
-		cob\cob.dll = cob\cob.dll
-		cob\cob.exe = cob\cob.exe
-		cob\cob.runtimeconfig.json = cob\cob.runtimeconfig.json
-		cob\CommandLine.dll = cob\CommandLine.dll
-		cob\mage.zip = cob\mage.zip
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "s3u", "s3u", "{2E880E16-125A-474E-BE5A-D18DB0D60773}"
-	ProjectSection(SolutionItems) = preProject
-		s3u\AWSSDK.Core.dll = s3u\AWSSDK.Core.dll
-		s3u\AWSSDK.S3.dll = s3u\AWSSDK.S3.dll
-		s3u\CommandLine.dll = s3u\CommandLine.dll
-		s3u\s3u.deps.json = s3u\s3u.deps.json
-		s3u\s3u.dll = s3u\s3u.dll
-		s3u\s3u.exe = s3u\s3u.exe
-		s3u\s3u.runtimeconfig.json = s3u\s3u.runtimeconfig.json
 	EndProjectSection
 EndProject
 Global
@@ -79,8 +59,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{29BFB1EB-0A1A-425C-941C-296159BC61F3} = {BD1FE5E9-68B0-4122-976E-C51171DB691E}
 		{7C7E7358-7945-4088-8C4A-3A07882C158C} = {29BFB1EB-0A1A-425C-941C-296159BC61F3}
-		{918D5A71-6337-4C5C-B4BF-F50BDDFE0B63} = {BD1FE5E9-68B0-4122-976E-C51171DB691E}
-		{2E880E16-125A-474E-BE5A-D18DB0D60773} = {BD1FE5E9-68B0-4122-976E-C51171DB691E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AEC2B5C-3CA8-4E8F-915F-7C8D606A44AF}
