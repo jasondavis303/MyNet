@@ -20,4 +20,4 @@ jobs:
       run: |
         dotnet publish -c release -o publish
         .\suag.exe build --name MyNet --app-id "3DD9B4C4-6090-4A95-B9DB-5C9BF731A704" --source-exe publish\MyNet.exe --target-dir upload --depo https://s3.us-west-1.wasabisys.com/jd-media/suadepo/ --no-gui
-        .\s3u.exe --endpoint ${{ secrets.S3_ENDPOINT }} --access-key ${{ secrets.S3_KEY_ID }} --access-secret ${{ secrets.S3_SECRET }} --source upload --bucket ${{ secrets.S3_BUCKET }} --target suadepo --overwrite
+        .\s3u.exe --endpoint ${{ secrets.S3_ENDPOINT }} --access-key ${{ secrets.S3_KEY_ID }} --access-secret ${{ secrets.S3_SECRET }} --source upload --bucket ${{ secrets.S3_BUCKET }} --target suadepo --overwrite --verbose
