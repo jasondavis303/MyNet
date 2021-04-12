@@ -13,7 +13,10 @@ namespace MyNet
         public frmMain()
         {
             InitializeComponent();
+
+            Text += " v" + SelfUpdatingApp.Installer.GetInstalledVersion(Program.APP_ID).ToString();
             Icon = Properties.Resources.network;
+
             btnAdd.Click += BtnAdd_Click;
             btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += BtnDelete_Click;
