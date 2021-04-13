@@ -10,6 +10,7 @@
     <PackageProjectUrl>https://github.com/jasondavis303/MyNet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jasondavis303/MyNet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
