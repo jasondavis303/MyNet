@@ -5,12 +5,15 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\network.ico</ApplicationIcon>
-    <Authors>jasondavis303</Authors>
+    <Authors>Jason Davis</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/jasondavis303/MyNet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jasondavis303/MyNet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Version>1.0.0.1</Version>
+    <Company>jasondavis303</Company>
+    <Copyright>jasondavis303</Copyright>
+    <Description>Handy app to keep a reference of Network nodes with credentials, and buttons to launch Remote Desktop, Windows Explorer, PuTTY and WinSCP</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="suag" Version="21.4.13.938" />
+    <PackageReference Include="suag" Version="21.4.13.1147" />
   </ItemGroup>
 
   <ItemGroup>
