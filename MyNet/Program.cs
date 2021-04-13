@@ -1,3 +1,4 @@
+using SelfUpdatingApp;
 using System;
 using System.Windows.Forms;
 
@@ -20,11 +21,16 @@ namespace MyNet
 #if !DEBUG
             try
             {
-                using var frm = new frmCheckingUpdates();
-                Application.Run(frm);
-                if(frm.UpdateAvailable)
+                //using var frm = new frmCheckingUpdates();
+                //Application.Run(frm);
+                //if(frm.UpdateAvailable)
+                //{
+                //    SelfUpdatingApp.Installer.Launch(APP_ID);
+                //    return;
+                //}
+                if(Installer.IsUpdateAvailableAsync(APP_ID, true).Result)
                 {
-                    SelfUpdatingApp.Installer.Launch(APP_ID);
+                    Installer.Launch(APP_ID);
                     return;
                 }
             }
