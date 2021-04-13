@@ -21,13 +21,6 @@ namespace MyNet
 #if !DEBUG
             try
             {
-                //using var frm = new frmCheckingUpdates();
-                //Application.Run(frm);
-                //if(frm.UpdateAvailable)
-                //{
-                //    SelfUpdatingApp.Installer.Launch(APP_ID);
-                //    return;
-                //}
                 if(Installer.IsUpdateAvailableAsync(APP_ID, true).Result)
                 {
                     Installer.Launch(APP_ID);
