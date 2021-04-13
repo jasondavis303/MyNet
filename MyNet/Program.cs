@@ -17,9 +17,12 @@ namespace MyNet
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+#if !DEBUG
             try
             {
-                if (SelfUpdatingApp.Installer.IsUpdateAvailableAsync(APP_ID).Result)
+                using var frm = new frmCheckingUpdates();
+                Application.Run(frm);
+                if(frm.UpdateAvailable)
                 {
                     SelfUpdatingApp.Installer.Launch(APP_ID);
                     return;
@@ -29,7 +32,7 @@ namespace MyNet
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+#endif
             Application.Run(new frmMain());
         }
     }
