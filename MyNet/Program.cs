@@ -23,6 +23,7 @@ namespace MyNet
             {
                 if(Installer.IsUpdateAvailableAsync(APP_ID, true).Result)
                 {
+                    Manager.InstallNewest();
                     Installer.Launch(APP_ID);
                     return;
                 }
