@@ -21,7 +21,7 @@ namespace MyNet
 #if !DEBUG
             try
             {
-                if(Installer.IsUpdateAvailableAsync(APP_ID).Result)
+                if(Installer.IsUpdateAvailableAsync(APP_ID, true).Result)
                 {
                     Manager.InstallNewest();
                     Installer.Launch(APP_ID);
