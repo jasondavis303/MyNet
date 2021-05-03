@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="suag" Version="21.4.26.1027" />
+    <PackageReference Include="suag" Version="21.5.3.292" />
   </ItemGroup>
 
   <ItemGroup>
